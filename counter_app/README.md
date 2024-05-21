@@ -14,3 +14,9 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Testing
+
+1. flutter build apk
+2. ./gradlew app:assembleDebug -Ptarget=/Users/sselvarj/Documents/git/personal/flutter-learnings/counter_app/integration_test/appium.dart
+3. Run appium ui automator tests pointing to apk-debug.apk file
