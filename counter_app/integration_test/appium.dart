@@ -24,13 +24,20 @@ void main() async {
 
   testWidgets('tap on the floating action button, verify counter',
       (tester) async {
-    tester.view.physicalSize = Size(tester.view.physicalConstraints.maxWidth,
-        tester.view.physicalConstraints.maxHeight);
+    await tester.binding.setSurfaceSize(Size(
+      tester.view.physicalConstraints.minWidth *
+          tester.view.physicalSize.aspectRatio,
+      tester.view.physicalConstraints.minHeight *
+          tester.view.physicalSize.aspectRatio,
+    ));
 
     // Load app widget.
     await tester.pumpWidget(const MyApp());
     final fab = find.byKey(const ValueKey('increment'));
 
+    await tester.tap(fab);
+    await tester.tap(fab);
+    await tester.tap(fab);
     var app = shelf.Router();
 
     app.get('/hello', (Request request) async {
