@@ -119,6 +119,22 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
 
           children: <Widget>[
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+              key: const ValueKey('counterValue'),
+              semanticsLabel: 'counterValue',
+            ),
+            TextField(
+              key: const ValueKey("input"),
+              cursorHeight: 10,
+              enabled: true,
+            ),
+            const IconButton(
+              key: const ValueKey("icon_button"),
+              icon: const Icon(Icons.access_alarm_rounded),
+              onPressed: null,
+            ),
             const Text(
               'You have pushed the button this many times:',
             ),
@@ -127,7 +143,6 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             GestureDetector(
-              onDoubleTap: _incrementCounterDouble,
               child: FloatingActionButton(
                 onPressed: _incrementCounter,
                 tooltip: 'Increment',
@@ -140,9 +155,9 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 FloatingActionButton(
-                  onPressed: _incrementCounter,
+                  onPressed: null,
                   tooltip: 'Increment',
-                  key: const ValueKey('increment'),
+                  key: const ValueKey('increment_disabled'),
                   child: const Icon(Icons.add),
                 )
               ],
